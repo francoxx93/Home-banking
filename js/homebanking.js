@@ -20,7 +20,7 @@ var password = 1234;
 
 
 function retirarDinero(monto) {
-    var importe = parseInt(monto);
+    var importe = parseFloat(monto);
     saldoCuenta = saldoCuenta - importe;
     actualizarSaldoEnPantalla();
 }
@@ -88,7 +88,7 @@ function fondosBloqueados() {
 
 
 function consultarSaldo(stringMonto) {
-    var monto = parseInt(stringMonto);
+    var monto = parseFloat(stringMonto);
     if (saldoCuenta >= monto) {
         return (true)
     } else { return (false) }
@@ -132,7 +132,7 @@ function verificarSaldo(monto) {
 }
 
 function verificarSaldoUSD(monto) {
-    if (monto <= saldoCuentaUsd) {
+    if (monto >= saldoCuentaUsd) {
         return (true)
     } else {
         alert("Usted no puede operar con montos superiores a su saldo en cuenta que es de USD" + saldoCuentaUsd)
@@ -189,7 +189,7 @@ function verificarSaldoUSD(monto) {
 
     function cobrarServicio(ssaPagar, serviciox) {
         var stringImporte = ssaPagar;
-        var importe = parseInt(stringImporte);
+        var importe = parseFloat(stringImporte);
         var saldoInicial = saldoCuenta;
         var cobro = "En concepto de " + serviciox + " \n Se han cobrado $"
         if (consultarSaldo(importe) == true) {
@@ -201,7 +201,7 @@ function verificarSaldoUSD(monto) {
     }
     function transferirDinero() {
         var cbuDestinoString = prompt("Seleccione a que cuenta desea enviar fondos: \n 1-Cuenta amiga 1. \n 2-Cuenta amiga 2. ");
-        var cbuDestino = parseInt(cbuDestinoString);
+        var cbuDestino = parseFloat(cbuDestinoString);
         if (cbuDestino == 1 || cbuDestino == 2) {
             var retiroString = prompt("Cuanto desea transferir?");
             var retiro = validarNumero(retiroString);
@@ -228,7 +228,7 @@ function verificarSaldoUSD(monto) {
 
 
     function validarNumero(String) {
-        var importe = parseInt(String);
+        var importe = parseFloat(String);
         if (importe == String) {
             return importe;
         } else {
