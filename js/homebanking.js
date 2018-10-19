@@ -60,7 +60,7 @@ function venderDolares() {
     var vender = validarNumero(venderString);
     var acreditar$ = vender * 35;
     if (vender != false) {
-        if (verificarSaldoUSD(acreditar$) == true) {
+        if (verificarSaldoUSD(vender) == true) {
             incrementarDinero(acreditar$);
             saldoCuentaUsd = saldoInicial - vender;
             actualizarSaldoEnPantalla();
@@ -132,7 +132,7 @@ function verificarSaldo(monto) {
 }
 
 function verificarSaldoUSD(monto) {
-    if (monto >= saldoCuentaUsd) {
+    if (monto <= saldoCuentaUsd) {
         return (true)
     } else {
         alert("Usted no puede operar con montos superiores a su saldo en cuenta que es de USD" + saldoCuentaUsd)
